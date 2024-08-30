@@ -1,0 +1,6 @@
+
+# packaging stuff
+**.egg-info
+dist/*
+build/*
+file.txt
