@@ -1,6 +1,7 @@
 
 # packaging stuff
 **.egg-info
-dist/*
-build/*
+**/dist/*
+**/build/*
 file.txt
+**/*.so
