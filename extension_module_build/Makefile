@@ -13,10 +13,14 @@ build:
 xbuild:
 	python setup.py build_ext --inplace
 	python setup.py sdist bdist_wheel
-	pip install dist/*.whl
+	pip install --force-reinstall dist/*.whl
 
 
 .PHONY: rebuild
 rebuild: unbuild build
+
+.PHONY: venv
+venv:
+	virtualenv .venv
 
 

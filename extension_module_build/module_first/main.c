@@ -27,13 +27,34 @@ static PyObject *spam_system(PyObject *self, PyObject *args){
     return PyLong_FromLong(sts); // convets sys (int) to a python object
 }
 
-static PyObject *fibonacci_number(PyObject *self, PyObject *args){
+static PyObject *fibonacci_handler(PyObject *self, PyObject *args){
     const int number;
     int sts;
 
     if (!PyArg_ParseTuple(args, "l", &number))
         return NULL;
     sts = fibonacci(number);
+    return PyLong_FromLong(sts); // convets sys (int) to a python object
+}
+
+static PyObject *factorial_handler(PyObject *self, PyObject *args){
+    const int number;
+    int sts;
+
+    if (!PyArg_ParseTuple(args, "l", &number))
+        return NULL;
+    sts = factorial(number);
+    return PyLong_FromLong(sts); // convets sys (int) to a python object
+}
+
+static PyObject *custom_sum_handler(PyObject *self, PyObject *args){
+    const int num_1;
+    const int num_2;
+    int sts;
+
+    if (!PyArg_ParseTuple(args, "ii", &num_1, &num_2))
+        return NULL;
+    sts = custom_sum(num_1, num_2);
     return PyLong_FromLong(sts); // convets sys (int) to a python object
 }
 
@@ -48,9 +69,21 @@ static PyMethodDef module_first_methods[] = {
     },
     {
         "fibonacci",  
-        fibonacci_number, 
+        fibonacci_handler, 
         METH_VARARGS, // indicates the calling convention to be used for the C function. It is usually this one or METH_VARARGS | METH_KEYWORDS
         "Computes the nth fibonacci number."
+    },
+    {
+        "factorial",  
+        factorial_handler, 
+        METH_VARARGS, // indicates the calling convention to be used for the C function. It is usually this one or METH_VARARGS | METH_KEYWORDS
+        "Computes the nth factorial number."
+    },
+    {
+        "custom_sum",  
+        custom_sum_handler, 
+        METH_VARARGS, // indicates the calling convention to be used for the C function. It is usually this one or METH_VARARGS | METH_KEYWORDS
+        "Computes the hypotenuse of a right triangle, given its legs."
     },
     {NULL, NULL, 0, NULL}        /* Sentinel */
 };
