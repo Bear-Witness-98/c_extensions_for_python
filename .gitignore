@@ -5,3 +5,6 @@
 **/build/*
 file.txt
 **/*.so
+
+**/.venv
+.venv/*
