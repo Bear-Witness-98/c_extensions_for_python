@@ -56,8 +56,14 @@ string, use the value property:
 # other stuff. Doesn't make sense to go through all of them, I'll just try to load
 # the relevant functions here and 
 
-from ctypes import CDLL
+try:
+    from ctypes import CDLL
 
-new_module = CDLL("new_module.so")
-print("===========================")
-print(f"{new_module.fibonacci(10)}")
+    new_module = CDLL("new_module.so")
+    print("===========================")
+    print(f"{new_module.fibonacci(10)}")
+except Exception:
+    print(
+        "There is no 'new_module.so' file built. Please run `make build` from the "
+        "module directory"
+    )
