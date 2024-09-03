@@ -55,3 +55,9 @@ string, use the value property:
 # there are ways to pass everything to these functions, lists, arrays, and a lot of
 # other stuff. Doesn't make sense to go through all of them, I'll just try to load
 # the relevant functions here and 
+
+from ctypes import CDLL
+
+new_module = CDLL("new_module.so")
+print("===========================")
+print(f"{new_module.fibonacci(10)}")
