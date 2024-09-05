@@ -4,7 +4,10 @@
 **/dist/*
 **/build/*
 file.txt
-**/*.so
 
 **/.venv
 .venv/*
+
+# object files
+*.o
+**/*.so
