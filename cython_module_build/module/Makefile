@@ -1,12 +1,12 @@
 .PHONY: build
 build:
-	gcc -c -fPIC src/misc/misc.c src/ops/facto.c src/ops/fib.c -Iinclude
-	gcc -shared -o ../new_module.so *.o
+	python setup.py build_ext --inplace
 
 .PHONY: unbuild
 unbuild:
-	rm -rf fib.o facto.o misc.o
-	rm -rf ../new_module.so
+	rm helloworld.c
+	rm helloworld.cpython*
+	rm -rf build/*
 
 
 .PHONY: rebuild
