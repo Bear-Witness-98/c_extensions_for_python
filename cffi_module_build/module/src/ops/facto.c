@@ -1,4 +1,4 @@
-#include <ops.h>
+#include "../../../module/include/ops.h"
 
 // computes the factorial of n
 int factorial(unsigned int n){
