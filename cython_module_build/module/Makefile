@@ -7,6 +7,8 @@ unbuild:
 	rm helloworld.c
 	rm helloworld.cpython*
 	rm -rf build/*
+	rm *.c
+	rm *.so
 
 
 .PHONY: rebuild
